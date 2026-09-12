@@ -1,311 +1,464 @@
 ---
-import "../styles/experience.css";
+import "../styles/maximal.css";
+const skills = [
+  {
+    number: "01",
+    name: "Frontend",
+    phrase: "Se ve. Se siente. Funciona.",
+    text: "Interfaces responsive y componentes reutilizables que convierten requerimientos en experiencias claras.",
+    stack: "Angular / TypeScript / HTML / CSS",
+    class: "front",
+  },
+  {
+    number: "02",
+    name: "Backend",
+    phrase: "La magia tiene lógica.",
+    text: "APIs REST, servicios e integraciones entre aplicaciones, bases de datos y hardware.",
+    stack: "Node.js / NestJS / Java / PHP / SQL",
+    class: "back",
+  },
+  {
+    number: "03",
+    name: "Infraestructura",
+    phrase: "Ideas listas para operar.",
+    text: "Despliegue y mantenimiento de aplicaciones y datos en Linux, con contenedores y procesos CI/CD.",
+    stack: "Linux / Docker / Jenkins / CI/CD",
+    class: "infra",
+  },
+];
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#fc693b" />
     <meta
       name="description"
-      content="Jhon Rengifo, desarrollador de software e ingeniero de sistemas. Interfaces, servicios e infraestructura que trabajan juntos."
+      content="Jhon Rengifo. Desarrollador full stack e ingeniero de sistemas en Colombia. Interfaces, APIs e infraestructura: ideas convertidas en software."
     />
-    <meta name="theme-color" content="#101010" />
-    <title>Jhon Rengifo — Software conectado.</title>
+    <link rel="icon" href="/creative-mark.svg" type="image/svg+xml" />
+    <title>Jhon Rengifo — Ideas grandes. Software real.</title>
   </head>
   <body>
-    <a class="skip" href="#trabajo">
+    <a class="skip-link" href="#trabajo">
       Saltar al contenido
     </a>
-    <header class="navigation">
-      <a class="wordmark" href="#inicio" aria-label="Jhon Rengifo, inicio">
-        jr<span>↗</span>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Jhon Rengifo, inicio">
+        jhon<span class="brand-star">✳</span>
       </a>
-      <span class="nav-role">
-        SOFTWARE DEVELOPER
-        <br />
-        SYSTEMS ENGINEER
-      </span>
-      <nav aria-label="Principal">
+      <nav id="site-nav" aria-label="Principal">
         <a href="#trabajo">Trabajo</a>
-        <a href="#sistema">Mi enfoque</a>
-        <a href="#contacto">Hablemos ↗</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="#contacto">Contacto ↗</a>
       </nav>
-      <button id="motion" aria-pressed="false" aria-label="Pausar movimiento">
-        Pausar ◫
-      </button>
+      <div class="header-tools">
+        <a
+          class="cv-link"
+          href="/cv_mejorada.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          CV ↗
+        </a>
+        <button
+          id="motion-toggle"
+          aria-pressed="false"
+          aria-label="Pausar animaciones"
+        >
+          ◫ <span>Movimiento</span>
+        </button>
+        <button id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+          Menú +
+        </button>
+      </div>
     </header>
     <main>
-      <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-meta">
-          <span>JHON RENGIFO · COLOMBIA</span>
-          <span>INTERFACE → INFRASTRUCTURE</span>
-        </div>
-        <h1 id="hero-title">
-          <span>SOFTWARE</span>
-          <span class="title-middle">
-            QUE <i>CONECTA</i>
+      <section class="max-hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-kicker">
+          <span>
+            <i></i> JHON RENGIFO — SOFTWARE DEVELOPER
           </span>
-          <span class="title-last">
-            TODO<span class="period">.</span>
-          </span>
-        </h1>
-        <div
-          class="sculpture"
-          id="sculpture"
-          aria-label="Escultura de tres capas conectadas. Usa los controles para separar o girar sus capas."
-        >
-          <div class="sculpture-fallback" aria-hidden="true">
-            <div class="orbit orbit-a"></div>
-            <div class="orbit orbit-b"></div>
-            <div class="orbit orbit-c"></div>
-            <div class="core"></div>
-          </div>
-          <div id="scene" aria-hidden="true"></div>
-          <span class="scene-caption">01 / SISTEMAS CONECTADOS</span>
-          <div class="scene-legend" aria-hidden="true">
-            <span>Frontend</span>
-            <span>Backend</span>
-            <span>Infraestructura</span>
-          </div>
+          <span>TULUÁ, COLOMBIA / PORTAFOLIO 2026</span>
         </div>
-        <div class="hero-bottom">
+        <div class="hero-composition">
+          <h1 id="hero-title">
+            <span class="title-line">IDEAS</span>
+            <span class="title-line title-outline">GRANDES.</span>
+            <span class="title-line title-small">
+              SOFTWARE <em>REAL.</em>
+            </span>
+          </h1>
+          <div class="creative-object" id="creative-object">
+            <div class="object-fallback" aria-hidden="true">
+              ✳
+            </div>
+            <div id="creative-canvas" aria-hidden="true"></div>
+            <span class="object-label">CREATIVE SYSTEM / 001</span>
+          </div>
+          <span class="hero-sticker sticker-lime">
+            DEL PIXEL
+            <br />
+            AL SERVIDOR. <b>↗</b>
+          </span>
+          <button class="remix" id="remix" aria-pressed="false">
+            <span>✳</span> REMEZCLA
+            <br />
+            EL SISTEMA <b>↗</b>
+          </button>
+        </div>
+        <div class="hero-foot">
           <p>
-            De lo que ves
-            <br />a lo que lo hace posible.
-            <br />
-            <span>Frontend, backend e infraestructura.</span>
+            Soy <strong>Jhon</strong>, ingeniero de sistemas y desarrollador
+            full stack. Conecto interfaces, servicios y datos para convertir
+            problemas complejos en software que funciona.
           </p>
-          <div class="scene-controls">
-            <button id="explode" aria-pressed="false">
-              Separar el sistema ↗
-            </button>
-            <button id="rotate" aria-label="Girar el sistema">
-              Girar ↻
-            </button>
-            <small>ARRASTRA LA PIEZA PARA EXPLORAR</small>
-          </div>
-          <a class="scroll-link" href="#trabajo">
-            Explora mi trabajo <span>↓</span>
-          </a>
-        </div>
-      </section>
-      <section class="work" id="trabajo" aria-labelledby="work-title">
-        <div class="section-label">
-          <h2 id="work-title">EXPERIENCIA EN ACCIÓN</h2>
-          <span>2022 — ACTUALIDAD</span>
-        </div>
-        <article class="project">
-          <a
-            class="project-stage operations"
-            href="/trabajo/auditoria-e-interoperabilidad/"
-            aria-label="Explorar experiencia en auditoría e interoperabilidad"
-          >
-            <div class="project-overline">
-              01 — SISTEMAS QUE TRABAJAN JUNTOS
-            </div>
-            <div class="system-art" aria-hidden="true">
-              <div class="system-ring ring-one"></div>
-              <div class="system-ring ring-two"></div>
-              <div class="system-ring ring-three"></div>
-              <div class="system-chip">
-                <span>CONNECTED</span>
-                <strong>CORE</strong>
-                <span>API / DATA / SERVICES</span>
-              </div>
-              <span class="satellite sat-one">INTERFACE</span>
-              <span class="satellite sat-two">DATABASE</span>
-              <span class="satellite sat-three">INFRASTRUCTURE</span>
-            </div>
-            <div class="stage-bottom">
-              <p>
-                La complejidad,
-                <br />
-                <em>bien conectada.</em>
-              </p>
-              <span class="round-arrow">↗</span>
-            </div>
-            <small class="concept-note">
-              INTERPRETACIÓN VISUAL · NO ES UNA CAPTURA DEL PRODUCTO
-            </small>
-          </a>
-          <div class="project-info">
-            <div>
-              <h3>Auditoría & interoperabilidad</h3>
-              <p>FTSTecnología · Desarrollo full stack · Desde 2023</p>
-            </div>
-            <div class="tags">
-              <span>Servicios & APIs</span>
-              <span>Datos</span>
-              <span>Linux & Docker</span>
-            </div>
-          </div>
-        </article>
-        <article class="project">
-          <a
-            class="project-stage commerce"
-            href="/trabajo/ecommerce-responsive/"
-            aria-label="Explorar experiencia en comercio electrónico"
-          >
-            <div class="project-overline">02 — EXPERIENCIAS QUE SE ADAPTAN</div>
-            <div class="commerce-art" aria-hidden="true">
-              <div class="browser-mock">
-                <div class="mock-nav">
-                  OBJECT / STUDIO <span>COLLECTION 02 ↗</span>
-                </div>
-                <div class="mock-heading">
-                  Everyday.
-                  <br />
-                  <i>Extraordinary.</i>
-                </div>
-                <div class="product-object">
-                  <div></div>
-                </div>
-                <div class="mock-bottom">
-                  DESIGNED FOR EVERY DAY <span>EXPLORE →</span>
-                </div>
-              </div>
-              <div class="phone-mock">
-                <span>OBJECT /</span>
-                <div class="mini-object"></div>
-                <strong>
-                  Good things.
-                  <br />
-                  Anywhere.
-                </strong>
-                <div class="phone-button">EXPLORE ↗</div>
-              </div>
-            </div>
-            <div class="stage-bottom">
-              <p>
-                Una experiencia.
-                <br />
-                <em>Cualquier pantalla.</em>
-              </p>
-              <span class="round-arrow">↗</span>
-            </div>
-            <small class="concept-note">
-              COMPOSICIÓN CONCEPTUAL · NO ES UN PROYECTO DE CLIENTE
-            </small>
-          </a>
-          <div class="project-info">
-            <div>
-              <h3>Comercio sin fricción</h3>
-              <p>Omni.pro · Desarrollo frontend · 2022 — 2023</p>
-            </div>
-            <div class="tags">
-              <span>Adobe Commerce</span>
-              <span>Responsive</span>
-              <span>UI</span>
-            </div>
-          </div>
-        </article>
-      </section>
-      <section class="approach" id="sistema" aria-labelledby="approach-title">
-        <div class="section-label">
-          <span>NO SOLO CÓDIGO</span>
-          <span>UNA VISIÓN COMPLETA</span>
-        </div>
-        <h2 id="approach-title">
-          Lo importante
-          <br />
-          es cómo <em>encaja.</em>
-        </h2>
-        <div class="approach-grid">
-          <p class="approach-intro">
-            Una interfaz clara necesita servicios sólidos. Los servicios
-            necesitan datos confiables. Y todo necesita una infraestructura que
-            lo sostenga.
-          </p>
-          <div class="layer-explorer">
-            <div class="layer-buttons" aria-label="Explorar capacidades">
-              <button data-layer="0" aria-pressed="true">
-                <span>01</span> Lo que usas <b>↗</b>
-              </button>
-              <button data-layer="1" aria-pressed="false">
-                <span>02</span> Lo que resuelve <b>↗</b>
-              </button>
-              <button data-layer="2" aria-pressed="false">
-                <span>03</span> Lo que sostiene <b>↗</b>
-              </button>
-            </div>
-            <div class="layer-content" aria-live="polite">
-              <span id="layer-name">FRONTEND</span>
-              <h3 id="layer-heading">
-                La complejidad no tiene que sentirse compleja.
-              </h3>
-              <p id="layer-description">
-                Interfaces responsive y componentes reutilizables, desde
-                aplicaciones Angular hasta experiencias de compra en Adobe
-                Commerce.
-              </p>
-              <p id="layer-tech">Angular · TypeScript · HTML · CSS</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="about">
-        <div class="section-label">
-          <span>EL DESARROLLADOR DETRÁS</span>
-          <span>TULUÁ, COLOMBIA</span>
-        </div>
-        <div class="about-grid">
-          <h2>
-            Jhon
-            <br />
-            Rengifo<span>↗</span>
-          </h2>
-          <div>
-            <p>
-              Ingeniero de Sistemas y desarrollador full stack con más de cuatro
-              años de experiencia conectando interfaces, servicios y datos.
-            </p>
-            <p>
-              He trabajado en comercio electrónico, auditoría de peajes e
-              interoperabilidad. Me interesa entender el problema completo, no
-              únicamente la pantalla que tenemos delante.
-            </p>
+          <div class="hero-actions">
+            <a class="action dark" href="#trabajo">
+              Explorar mi trabajo <span>↘</span>
+            </a>
             <a
-              class="text-link"
+              class="underlined"
               href="/cv_mejorada.pdf"
               target="_blank"
               rel="noopener"
             >
-              Leer mi CV ↗
+              Conoce mi trayectoria ↗
+            </a>
+          </div>
+          <span class="hero-index">
+            SCROLL PARA
+            <br />
+            CONECTAR LAS PIEZAS ↓
+          </span>
+        </div>
+      </section>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          FRONTEND <span>✳</span> BACKEND <span>✳</span> INFRAESTRUCTURA{" "}
+          <span>✳</span> IDEAS EN MOVIMIENTO <span>✳</span> FRONTEND{" "}
+          <span>✳</span> BACKEND <span>✳</span> INFRAESTRUCTURA <span>✳</span>{" "}
+          IDEAS EN MOVIMIENTO <span>✳</span>
+        </div>
+      </div>
+      <section class="work-section" id="trabajo" aria-labelledby="work-heading">
+        <div class="section-top">
+          <span>01 / TRABAJO DESTACADO</span>
+          <span>MENOS PROMESAS. MÁS CONTEXTO.</span>
+        </div>
+        <div class="section-heading">
+          <h2 id="work-heading">
+            CÓDIGO CON
+            <br />
+            <span class="serif-word">propósito.</span>
+          </h2>
+          <p>
+            Experiencia real en sistemas operativos y comercio electrónico.
+            <br />
+            <strong>Esto es lo que he ayudado a construir.</strong>
+          </p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card card-lime">
+            <div class="card-header">
+              <span>01 / FTSTECNOLOGÍA</span>
+              <span class="type-tag">EXPERIENCIA PROFESIONAL</span>
+            </div>
+            <a
+              class="work-title"
+              href="/trabajo/auditoria-e-interoperabilidad/"
+            >
+              <h3>
+                SISTEMAS
+                <br />
+                CONECTADOS.
+              </h3>
+              <span>↗</span>
+            </a>
+            <p>
+              Auditoría de peajes, control operativo e interoperabilidad. Mi
+              participación: desarrollo full stack, APIs e integraciones.
+            </p>
+            <a
+              class="work-art art-system"
+              href="/trabajo/auditoria-e-interoperabilidad/"
+              aria-label="Ver mi contribución en FTSTecnología"
+            >
+              <div class="diagram" aria-hidden="true">
+                <div class="diagram-lines"></div>
+                <span class="diagram-node node-interface">
+                  UI <small>INTERFAZ</small>
+                </span>
+                <span class="diagram-node node-api">{"{ API }"}</span>
+                <span class="diagram-node node-data">
+                  DB <small>DATOS</small>
+                </span>
+                <span class="diagram-node node-infra">
+                  ↑<small>INFRAESTRUCTURA</small>
+                </span>
+                <span class="diagram-star">✳</span>
+              </div>
+              <span class="art-caption">VISUALIZACIÓN CONCEPTUAL</span>
+            </a>
+            <div class="card-bottom">
+              <span>FULL STACK / APIs / DOCKER</span>
+              <a href="/trabajo/auditoria-e-interoperabilidad/">
+                Ver mi contribución ↗
+              </a>
+            </div>
+          </article>
+          <article class="work-card card-blue">
+            <div class="card-header">
+              <span>02 / OMNI.PRO</span>
+              <span class="type-tag">EXPERIENCIA PROFESIONAL</span>
+            </div>
+            <a class="work-title" href="/trabajo/ecommerce-responsive/">
+              <h3>
+                COMERCIO.
+                <br />
+                SIN FRICCIÓN.
+              </h3>
+              <span>↗</span>
+            </a>
+            <p>
+              Interfaces de e-commerce y componentes responsive sobre Magento 2
+              y Adobe Commerce. Mi participación: desarrollo frontend.
+            </p>
+            <a
+              class="work-art art-commerce"
+              href="/trabajo/ecommerce-responsive/"
+              aria-label="Ver mi contribución en Omni.pro"
+            >
+              <div class="shop-window" aria-hidden="true">
+                <div class="shop-nav">
+                  GOOD / OBJECTS <span>MENU +</span>
+                </div>
+                <div class="shop-title">
+                  LESS SCROLL.
+                  <br />
+                  <i>MORE SOUL.</i>
+                </div>
+                <div class="shop-sculpture">✳</div>
+                <span class="shop-cta">FIND YOUR THING ↗</span>
+              </div>
+              <span class="sale-sticker" aria-hidden="true">
+                WEB
+                <br />+ MÓVIL
+              </span>
+              <span class="art-caption">
+                COMPOSICIÓN CONCEPTUAL, NO CAPTURA DE CLIENTE
+              </span>
+            </a>
+            <div class="card-bottom">
+              <span>FRONTEND / E-COMMERCE / UI</span>
+              <a href="/trabajo/ecommerce-responsive/">Ver mi contribución ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section
+        class="capabilities"
+        id="capacidades"
+        aria-labelledby="cap-heading"
+      >
+        <div class="section-top">
+          <span>02 / CAPACIDADES TÉCNICAS</span>
+          <span>TODAS LAS PIEZAS IMPORTAN</span>
+        </div>
+        <h2 id="cap-heading">
+          NO ME QUEDO
+          <br />
+          EN LA <span>SUPERFICIE.</span>
+        </h2>
+        <div class="cap-grid">
+          {skills.map((skill) => (
+            <article class={`cap-card ${skill.class}`}>
+              <span class="cap-number">{skill.number}</span>
+              <div class="cap-icon" aria-hidden="true">
+                {skill.number === "01"
+                  ? "↗"
+                  : skill.number === "02"
+                    ? "✳"
+                    : "▥"}
+              </div>
+              <h3>{skill.name}</h3>
+              <strong>{skill.phrase}</strong>
+              <p>{skill.text}</p>
+              <span class="cap-stack">{skill.stack}</span>
+            </article>
+          ))}
+        </div>
+        <div class="system-playground">
+          <div>
+            <span class="eyebrow">PRUÉBALO / SIMULACIÓN ILUSTRATIVA</span>
+            <h3>
+              Una idea entra.
+              <br />
+              Un sistema responde.
+            </h3>
+            <p>
+              Explora cómo colaboran las capas. No se envían datos ni se ejecuta
+              un backend real.
+            </p>
+            <button class="action lime" id="run-system">
+              Enviar una idea <span>↗</span>
+            </button>
+          </div>
+          <div class="pipeline">
+            <div class="pipeline-stages">
+              <span data-stage="0">INTERFAZ</span>
+              <b>→</b>
+              <span data-stage="1">API</span>
+              <b>→</b>
+              <span data-stage="2">DATOS</span>
+            </div>
+            <div class="infra-rail">LINUX + DOCKER / ENTORNO DE EJECUCIÓN</div>
+            <p id="system-status" role="status">
+              Todo conectado. Listo para comenzar.
+            </p>
+            <div class="signal-track" aria-hidden="true">
+              <span class="signal"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="experience-section"
+        id="experiencia"
+        aria-labelledby="exp-heading"
+      >
+        <div class="section-top">
+          <span>03 / EXPERIENCIA PROFESIONAL</span>
+          <span>DEL APRENDIZAJE A LA PRÁCTICA</span>
+        </div>
+        <div class="experience-layout">
+          <div>
+            <h2 id="exp-heading">
+              NO EMPECÉ
+              <br />
+              <span class="serif-word">ayer.</span>
+            </h2>
+            <div class="experience-stamp">
+              <strong>4+</strong>
+              <span>
+                AÑOS DE
+                <br />
+                EXPERIENCIA
+              </span>
+              <b>✳</b>
+            </div>
+          </div>
+          <div class="timeline">
+            <article>
+              <span>2023 — ACTUALIDAD</span>
+              <h3>
+                FTSTecnología <small>↗</small>
+              </h3>
+              <strong>Software Developer · Tuluá</strong>
+              <p>
+                Aplicaciones full stack para auditoría e interoperabilidad.
+                APIs, servicios, integración de datos y despliegue de
+                aplicaciones.
+              </p>
+            </article>
+            <article>
+              <span>2022 — 2023</span>
+              <h3>
+                Omni.pro <small>↗</small>
+              </h3>
+              <strong>Frontend Developer · Bogotá</strong>
+              <p>
+                Desarrollo de interfaces responsive y componentes reutilizables
+                para comercio electrónico con Magento 2 y Adobe Commerce.
+              </p>
+            </article>
+            <a
+              class="underlined"
+              href="/cv_mejorada.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Ver CV completo ↗
             </a>
           </div>
         </div>
       </section>
-      <footer id="contacto">
-        <div class="section-label">
-          <span>LA PRÓXIMA CONEXIÓN</span>
-          <span>EMPIEZA CON UNA CONVERSACIÓN</span>
+      <section class="about-section" aria-labelledby="about-heading">
+        <div class="about-poster" aria-hidden="true">
+          <span>DETRÁS DEL CÓDIGO</span>
+          <strong>
+            JHON
+            <br />
+            RENGIFO
+            <span>
+              SYSTEMS
+              <br />
+              ENGINEER.
+            </span>
+          </strong>
+          <div class="poster-symbol">✳</div>
+          <small>HECHO EN COLOMBIA ↗</small>
         </div>
-        <a class="contact-title" href="mailto:rengifo-vera@hotmail.com">
-          HAGAMOS
-          <br />
-          QUE PASE<span>↗</span>
-        </a>
-        <div class="footer-bottom">
-          <a href="mailto:rengifo-vera@hotmail.com">rengifo-vera@hotmail.com</a>
-          <a
-            href="https://www.linkedin.com/in/jhon-rengifo-722273217/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn ↗
-          </a>
-          <a href="#inicio">Volver arriba ↑</a>
-          <span>JHON RENGIFO © {new Date().getFullYear()}</span>
+        <div class="about-copy">
+          <span class="eyebrow">04 / SOBRE MÍ</span>
+          <h2 id="about-heading">
+            CURIOSIDAD.
+            <br />
+            CRITERIO.
+            <br />
+            <em>Y mucho código.</em>
+          </h2>
+          <p>
+            Soy ingeniero de Sistemas de la Universidad del Valle. Me interesa
+            entender el problema completo: desde lo que una persona necesita
+            hacer hasta la infraestructura que permite hacerlo.
+          </p>
+          <p>
+            Mi experiencia conecta frontend, backend y operación. Creo en las
+            soluciones que se pueden explicar, mantener y seguir mejorando.
+          </p>
+          <div class="about-facts">
+            <span>TULUÁ, COLOMBIA</span>
+            <span>ESPAÑOL / INGLÉS B1</span>
+          </div>
         </div>
-      </footer>
+      </section>
     </main>
-    <div class="pointer-label" aria-hidden="true">
-      EXPLORAR ↗
-    </div>
+    <footer id="contacto">
+      <div class="section-top">
+        <span>05 / CONTACTO</span>
+        <span>LA PRÓXIMA IDEA PUEDE SER LA TUYA</span>
+      </div>
+      <a class="footer-cta" href="mailto:rengifo-vera@hotmail.com">
+        ¿Y SI LO
+        <br />
+        <span>CONSTRUIMOS?</span>
+        <b>↗</b>
+      </a>
+      <div class="footer-links">
+        <a href="mailto:rengifo-vera@hotmail.com">rengifo-vera@hotmail.com ↗</a>
+        <a
+          href="https://www.linkedin.com/in/jhon-rengifo-722273217/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+        <a href="/cv_mejorada.pdf" target="_blank" rel="noopener">
+          CV ↗
+        </a>
+        <a href="#inicio">Volver arriba ↑</a>
+      </div>
+      <div class="footer-note">
+        <span>JHON RENGIFO © {new Date().getFullYear()}</span>
+        <span>CREATIVE SYSTEMS / EDICIÓN MAXIMALISTA</span>
+      </div>
+    </footer>
     <script>
-      import "../scripts/experience";
+      import "../scripts/maximal";
     </script>
   </body>
 </html>
