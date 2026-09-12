@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Atlas vivo · Estudio visual</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #080b13; color: #eef1f9; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      button, select, input { font: inherit; }
+      button, select, .open-link { min-height: 38px; border: 1px solid #30394e; border-radius: 7px; background: #141b2a; color: #eef1f9; }
+      button { padding: 8px 11px; cursor: pointer; }
+      button[aria-pressed="true"] { background: #243859; border-color: #77a7ff; }
+      button:hover, select:hover, .open-link:hover { border-color: #77a7ff; }
+      :focus-visible { outline: 2px solid #ffad82; outline-offset: 3px; }
+      .toolbar { padding: 17px 24px 14px; background: #0d121e; border-bottom: 1px solid #273046; }
+      .heading { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 15px; }
+      h1 { font-size: 15px; font-weight: 600; letter-spacing: -.015em; margin: 0; }
+      h1 span { color: #9faec6; font-weight: 400; }
+      .eyebrow { display: block; color: #77a7ff; text-transform: uppercase; letter-spacing: .15em; font-size: 10px; margin-bottom: 6px; }
+      .open-link { display: inline-flex; align-items: center; gap: 12px; padding: 8px 12px; font-size: 12px; text-decoration: none; white-space: nowrap; }
+      .controls { display: flex; align-items: end; gap: 14px 24px; flex-wrap: wrap; }
+      fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+      legend, .control-label { display: block; margin: 0 0 6px; font-size: 11px; color: #aebbd0; }
+      .palettes { display: flex; gap: 5px; flex-wrap: wrap; }
+      .palettes button { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; }
+      .swatch { height: 9px; width: 9px; border-radius: 50%; background: var(--swatch); box-shadow: 0 0 0 2px #ffffff12; }
+      select { padding: 7px 27px 7px 9px; font-size: 12px; }
+      .motion { display: flex; align-items: center; gap: 7px; min-height: 38px; font-size: 12px; color: #ccd5e5; cursor: pointer; }
+      .motion input { accent-color: #77a7ff; width: 16px; height: 16px; }
+      .canvas-meta { display: flex; justify-content: space-between; gap: 10px; font-size: 11px; color: #99a9c3; margin: 0; padding: 10px 24px; }
+      .canvas-meta p { margin: 0; }
+      .stage { width: 100%; height: calc(100dvh - 200px); min-height: 420px; overflow: auto; padding: 0 20px 20px; }
+      .frame-holder { position: relative; margin-inline: auto; background: #0b1020; box-shadow: 0 0 0 1px #30394e, 0 12px 40px #0005; }
+      iframe { position: absolute; top: 0; left: 0; transform-origin: top left; border: 0; background: #0b1020; display: block; }
+      noscript { display: block; padding: 20px; }
+      noscript a { color: #77a7ff; }
+      @media (max-width: 620px) {
+        .toolbar { padding: 14px 12px; }
+        .heading { align-items: start; }
+        h1 { font-size: 13px; }
+        h1 span { display: block; margin-top: 3px; }
+        .open-link { font-size: 11px; padding-inline: 9px; }
+        .controls { gap: 12px; }
+        fieldset { flex-basis: 100%; }
+        .palettes button { flex: 1 1 auto; padding-inline: 8px; font-size: 11px; min-height: 44px; }
+        .canvas-meta { padding: 10px 12px; flex-wrap: wrap; }
+        .stage { padding-inline: 8px; }
+        select { min-height: 44px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="heading">
+        <h1><span class="eyebrow">Prototipo de dirección visual</span>Atlas vivo <span>/ Estudio visual</span></h1>
+        <a class="open-link" href="./concept.html" target="_blank" rel="noopener">Abrir sin marco <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="controls">
+        <fieldset>
+          <legend>Identidad cromática</legend>
+          <div class="palettes">
+            <button type="button" data-palette="prisma" aria-pressed="true"><span class="swatch" style="--swatch:#77a7ff" aria-hidden="true"></span>Prisma mineral</button>
+            <button type="button" data-palette="orbita" aria-pressed="false"><span class="swatch" style="--swatch:#63d9d2" aria-hidden="true"></span>Órbita cálida</button>
+            <button type="button" data-palette="papel" aria-pressed="false"><span class="swatch" style="--swatch:#f4f1ea" aria-hidden="true"></span>Papel eléctrico</button>
+          </div>
+        </fieldset>
+        <label><span class="control-label">Ancho de pantalla</span><select id="viewport"><option value="natural">Natural</option><option value="375">375 px · Teléfono</option><option value="768">768 px · Tablet</option><option value="1440">1440 px · Laptop</option><option value="1920">1920 px · Desktop</option><option value="2560">2560 px · Ultrawide</option></select></label>
+        <label><span class="control-label">Escala de revisión</span><select id="scale"><option value="fit">Ajustar a ventana</option><option value="actual">100 % · Tamaño real</option></select></label>
+        <label class="motion"><input id="motion" type="checkbox" />Reducir movimiento</label>
+      </div>
+    </header>
+    <div class="canvas-meta"><p id="viewport-status" role="status" aria-live="polite">Preparando vista…</p><p>Maqueta visual · 3D simulado · Sin librerías</p></div>
+    <main class="stage" aria-label="Vista previa del concepto">
+      <div class="frame-holder"><iframe src="./concept.html" title="Concepto visual Atlas vivo — portafolio de Jhon Rengifo"></iframe></div>
+    </main>
+    <noscript>Para usar los controles de revisión activa JavaScript o <a href="./concept.html">abre el concepto directamente</a>.</noscript>
+    <script>
+      const frame = document.querySelector('iframe');
+      const holder = document.querySelector('.frame-holder');
+      const stage = document.querySelector('.stage');
+      const viewport = document.querySelector('#viewport');
+      const scaling = document.querySelector('#scale');
+      const motion = document.querySelector('#motion');
+      const status = document.querySelector('#viewport-status');
+      const paletteButtons = [...document.querySelectorAll('[data-palette]')];
+      const systemMotion = matchMedia('(prefers-reduced-motion: reduce)');
+      let palette = 'prisma';
+      let userMotion = false;
+      motion.checked = systemMotion.matches;
+
+      function sendPreferences() {
+        frame.contentWindow?.postMessage({ type: 'atlas:palette', palette }, location.origin);
+        frame.contentWindow?.postMessage({ type: 'atlas:motion', reduced: motion.checked }, location.origin);
+        const direct = new URL('./concept.html', location.href);
+        direct.searchParams.set('palette', palette);
+        direct.searchParams.set('motion', motion.checked ? 'reduced' : 'full');
+        document.querySelector('.open-link').href = direct.href;
+      }
+
+      function resizePreview() {
+        const rect = stage.getBoundingClientRect();
+        const stageHeight = Math.max(420, window.innerHeight - rect.top);
+        stage.style.height = `${stageHeight}px`;
+        const style = getComputedStyle(stage);
+        const available = Math.max(240, stage.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight));
+        const width = viewport.value === 'natural' ? available : Number(viewport.value);
+        const ratio = scaling.value === 'fit' ? Math.min(1, available / width) : 1;
+        const availableHeight = stageHeight - parseFloat(style.paddingBottom) - 2;
+        const height = viewport.value === 'natural' ? Math.max(400, availableHeight) : width <= 375 ? 812 : width <= 768 ? 1024 : width >= 2560 ? 1080 : 1000;
+        holder.style.width = `${width * ratio}px`;
+        holder.style.height = `${height * ratio}px`;
+        frame.style.width = `${width}px`;
+        frame.style.height = `${height}px`;
+        frame.style.transform = `scale(${ratio})`;
+        status.textContent = `${Math.round(width)} × ${Math.round(height)} px CSS · Escala ${Math.round(ratio * 100)} %${ratio < .5 ? ' · Usa 100 % para revisar legibilidad' : ''}`;
+      }
+
+      paletteButtons.forEach(button => button.addEventListener('click', () => {
+        palette = button.dataset.palette;
+        paletteButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        sendPreferences();
+      }));
+      motion.addEventListener('change', () => { userMotion = true; sendPreferences(); });
+      systemMotion.addEventListener('change', event => { if (!userMotion) { motion.checked = event.matches; sendPreferences(); } });
+      viewport.addEventListener('change', resizePreview);
+      scaling.addEventListener('change', resizePreview);
+      window.addEventListener('resize', resizePreview);
+      frame.addEventListener('load', () => { resizePreview(); sendPreferences(); });
+      new ResizeObserver(resizePreview).observe(document.querySelector('.toolbar'));
+      resizePreview();
+    </script>
+  </body>
+</html>
