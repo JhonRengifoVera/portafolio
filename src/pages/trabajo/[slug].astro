@@ -1,0 +1,291 @@
+---
+import "../../styles/experience.css";
+const cases = {
+  "auditoria-e-interoperabilidad": {
+    number: "01",
+    title: "Auditoría e interoperabilidad.",
+    company: "FTSTecnología",
+    period: "Junio 2023 — Actualidad",
+    intro: "Conectar aplicaciones, datos y operación.",
+    context:
+      "Desarrollo de aplicaciones para auditoría de peajes, control operativo e interoperabilidad.",
+    role: "Desarrollo full stack, APIs REST, servicios backend e integraciones entre aplicaciones, bases de datos y hardware.",
+    details: [
+      ["Interfaz", "Desarrollo de aplicaciones web con Angular y TypeScript."],
+      [
+        "Servicios y datos",
+        "Implementación de APIs e integraciones con servicios backend y bases de datos relacionales.",
+      ],
+      [
+        "Operación",
+        "Despliegue y mantenimiento de aplicaciones y bases de datos transaccionales en Linux, Docker y procesos CI/CD.",
+      ],
+    ],
+    stack: [
+      "Angular",
+      "TypeScript",
+      "Node.js",
+      "NestJS",
+      "Java",
+      "PHP",
+      "PostgreSQL",
+      "MySQL",
+      "Docker",
+      "Jenkins",
+      "Linux",
+    ],
+    next: "/trabajo/ecommerce-responsive/",
+    nextTitle: "Comercio electrónico",
+  },
+  "ecommerce-responsive": {
+    number: "02",
+    title: "Comercio sin fricción.",
+    company: "Omni.pro",
+    period: "Mayo 2022 — Mayo 2023",
+    intro: "Una experiencia consistente entre pantallas.",
+    context:
+      "Desarrollo frontend de sitios de comercio electrónico sobre Magento 2 y Adobe Commerce.",
+    role: "Implementación de interfaces responsive y componentes reutilizables a partir de diseños y requerimientos de negocio.",
+    details: [
+      [
+        "Interfaces",
+        "Desarrollo de componentes frontend para experiencias de comercio electrónico.",
+      ],
+      [
+        "Responsive",
+        "Adaptación de navegación y flujos de compra para web y dispositivos móviles.",
+      ],
+      [
+        "Implementación",
+        "Trabajo con JavaScript, HTML, CSS, SCSS y Less dentro del ecosistema Magento 2 / Adobe Commerce.",
+      ],
+    ],
+    stack: [
+      "Adobe Commerce",
+      "Magento 2",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "SCSS",
+      "Less",
+      "Git",
+    ],
+    next: "/trabajo/auditoria-e-interoperabilidad/",
+    nextTitle: "Auditoría e interoperabilidad",
+  },
+};
+export function getStaticPaths() {
+  return ["auditoria-e-interoperabilidad", "ecommerce-responsive"].map(
+    (slug) => ({ params: { slug } }),
+  );
+}
+const item = cases[Astro.params.slug as keyof typeof cases];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content={`${item.intro} Experiencia profesional de Jhon Rengifo en ${item.company}.`}
+    />
+    <title>{item.title} — Jhon Rengifo</title>
+  </head>
+  <body>
+    <main class="case">
+      <nav class="case-nav">
+        <a href="/#trabajo">← Volver al trabajo</a>
+        <a href="mailto:rengifo-vera@hotmail.com">Hablemos ↗</a>
+      </nav>
+      <div class="section-label">
+        <span>{item.number} / EXPERIENCIA PROFESIONAL</span>
+        <span>{item.company}</span>
+      </div>
+      <h1>{item.title}</h1>
+      <p class="case-intro">{item.intro}</p>
+      <div class="case-facts">
+        <p>
+          {item.company}
+          <br />
+          <span>{item.period}</span>
+        </p>
+        <div class="tags">
+          {item.stack.map((tech) => (
+            <span>{tech}</span>
+          ))}
+        </div>
+      </div>
+      <div class="case-grid">
+        <section>
+          <h2>El contexto</h2>
+          <p>{item.context}</p>
+        </section>
+        <section>
+          <h2>Mi participación</h2>
+          <p>{item.role}</p>
+        </section>
+      </div>
+      <section class="case-details">
+        <div class="section-label">
+          <h2>CAPACIDADES APLICADAS</h2>
+        </div>
+        {item.details.map(([title, description], i) => (
+          <article>
+            <span>0{i + 1}</span>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </article>
+        ))}
+      </section>
+      <p class="case-note">
+        Este resumen se basa en mi trayectoria profesional. Las composiciones de
+        la portada son ilustraciones conceptuales; no representan capturas de
+        estos productos. Los resultados cuantitativos y las decisiones de
+        arquitectura específicas no se presentan porque aún no están
+        documentados para este portafolio.
+      </p>
+      <a class="case-next" href={item.next}>
+        <span>SIGUIENTE EXPERIENCIA</span>
+        <strong>{item.nextTitle} ↗</strong>
+      </a>
+    </main>
+  </body>
+</html>
+<style>
+  .case {
+    padding: 0 var(--gutter);
+    max-width: 1800px;
+    margin: auto;
+  }
+  .case-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 45px 0 100px;
+    font-size: 12px;
+  }
+  .case h1 {
+    font-size: clamp(60px, 9vw, 160px);
+    letter-spacing: -0.07em;
+    line-height: 1.02;
+    font-weight: 400;
+    max-width: 1200px;
+    margin: 60px 0 35px;
+  }
+  .case-intro {
+    font-size: clamp(22px, 3vw, 45px);
+    color: var(--muted);
+    letter-spacing: -0.04em;
+  }
+  .case-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 70px 0 100px;
+  }
+  .case-facts p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  .case-facts p span {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12%;
+    margin-bottom: 100px;
+  }
+  .case-grid h2 {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--orange);
+  }
+  .case-grid p {
+    font-size: 23px;
+    line-height: 1.6;
+    letter-spacing: -0.03em;
+  }
+  .case-details article {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 1.5fr;
+    gap: 30px;
+    align-items: start;
+    padding: 35px 0;
+    border-bottom: 1px solid #444;
+  }
+  .case-details article > span {
+    font-size: 12px;
+    color: var(--orange);
+    padding-top: 10px;
+  }
+  .case-details h3 {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: -0.04em;
+  }
+  .case-details p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .case-note {
+    font-size: 12px;
+    color: var(--muted);
+    max-width: 700px;
+    line-height: 1.8;
+    margin: 60px 0 120px;
+  }
+  .case-next {
+    display: block;
+    border-top: 1px solid #444;
+    padding: 40px 0 80px;
+  }
+  .case-next span {
+    font-size: 10px;
+    color: var(--orange);
+  }
+  .case-next strong {
+    display: block;
+    font-size: clamp(35px, 5vw, 85px);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    margin-top: 25px;
+  }
+  @media (max-width: 600px) {
+    .case-nav {
+      padding-bottom: 65px;
+    }
+    .case h1 {
+      font-size: 55px;
+      overflow-wrap: anywhere;
+    }
+    .case-facts,
+    .case-grid {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+    .case-grid p {
+      font-size: 19px;
+    }
+    .case-details article {
+      grid-template-columns: 25px 1fr;
+      gap: 15px;
+    }
+    .case-details article p {
+      grid-column: 2;
+    }
+    .case-details h3 {
+      font-size: 25px;
+    }
+    .case-note {
+      margin-bottom: 70px;
+    }
+  }
+</style>
