@@ -1701,6 +1701,36 @@ footer {
 .site-header nav a:nth-child(4) {
   display: block;
 }
+.ai-architecture {
+  margin-top: 24px;
+  padding: 26px;
+  background: var(--orange);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.ai-architecture p {
+  max-width: 850px;
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 18px 0;
+}
+.architecture-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.architecture-tags span {
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  padding: 8px 12px;
+  font-size: 9px;
+  font-weight: 700;
+}
+.ai-architecture .panel-index {
+  color: var(--ink);
+}
 @media (max-width: 760px) {
   .ai-soft-section {
     padding: 55px var(--gutter) 65px;
@@ -1735,5 +1765,11 @@ footer {
   }
   .soft-list li {
     padding: 14px 0;
+  }
+  .ai-architecture {
+    padding: 20px;
+  }
+  .ai-architecture p {
+    font-size: 14px;
   }
 }
