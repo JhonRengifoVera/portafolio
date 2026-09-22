@@ -1646,6 +1646,58 @@ footer {
     transition: none !important;
   }
 }
+.skill-matrix {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin: 32px 0 40px;
+  border-top: 1px solid #fff5;
+  border-bottom: 1px solid #fff5;
+}
+.skill-matrix div {
+  padding: 20px 16px 22px;
+  border-right: 1px solid #fff5;
+  min-width: 0;
+}
+.skill-matrix div:last-child {
+  border-right: 0;
+}
+.skill-matrix span {
+  display: block;
+  color: var(--lime);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+.skill-matrix strong {
+  display: block;
+  font-size: 11px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #e2e1fa;
+}
+@media (max-width: 760px) {
+  .skill-matrix {
+    grid-template-columns: 1fr 1fr;
+    margin: 25px 0 30px;
+  }
+  .skill-matrix div:nth-child(2n) {
+    border-right: 0;
+  }
+  .skill-matrix div {
+    border-right: 1px solid #fff5;
+    border-bottom: 1px solid #fff5;
+    padding: 16px 12px;
+  }
+  .skill-matrix div:last-child {
+    grid-column: 1/-1;
+    border-bottom: 0;
+  }
+  .skill-matrix strong {
+    font-size: 10px;
+  }
+}
 .site-header nav a:nth-child(4) {
   display: block;
 }
