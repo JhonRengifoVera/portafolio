@@ -786,6 +786,140 @@ h2 {
 .system-playground.is-running .signal {
   animation: signal 1.5s ease-in-out infinite;
 }
+.ai-soft-section {
+  padding: 90px var(--gutter) 95px;
+  background: var(--cream);
+  color: var(--ink);
+}
+.ai-soft-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 35px;
+  margin-bottom: 55px;
+}
+.ai-soft-heading h2 {
+  font-size: clamp(50px, 7vw, 110px);
+}
+.ai-soft-heading p {
+  max-width: 345px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.ai-soft-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+}
+.ai-panel,
+.soft-panel {
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 28px;
+  min-height: 480px;
+}
+.ai-panel-orange {
+  background: var(--orange);
+  box-shadow: 7px 7px 0 var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.panel-index {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.panel-symbol {
+  font-size: 125px;
+  line-height: 1;
+  color: var(--blue);
+  position: absolute;
+  right: 22px;
+  top: 55px;
+}
+.ai-panel h3,
+.soft-panel h3 {
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(38px, 4.5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin: 105px 0 18px;
+}
+.ai-panel h3 em,
+.soft-panel h3 em {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.ai-panel p {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 450px;
+}
+.panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 27px;
+}
+.panel-tags span {
+  font-size: 9px;
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  padding: 7px 10px;
+}
+.ai-panel small {
+  display: block;
+  font-size: 9px;
+  line-height: 1.5;
+  margin-top: 35px;
+  max-width: 300px;
+  border-top: 1px solid #20211e70;
+  padding-top: 12px;
+}
+.soft-panel {
+  background: var(--blue);
+  color: var(--cream);
+  border-color: var(--blue);
+}
+.soft-panel h3 {
+  margin-top: 100px;
+}
+.soft-list {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+}
+.soft-list li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 6px 15px;
+  border-top: 1px solid #fff6;
+  padding: 16px 0;
+}
+.soft-list li > span {
+  font-size: 9px;
+  color: var(--lime);
+}
+.soft-list strong {
+  font-size: 16px;
+}
+.soft-list p {
+  grid-column: 2;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #deddf9;
+  margin: 0;
+}
+.content-note {
+  font-size: 9px;
+  color: var(--muted);
+  margin: 28px 0 0;
+}
+.site-header nav a:nth-child(4) {
+  display: none;
+}
 @keyframes signal {
   to {
     left: 100%;
@@ -1510,5 +1644,44 @@ footer {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+.site-header nav a:nth-child(4) {
+  display: block;
+}
+@media (max-width: 760px) {
+  .ai-soft-section {
+    padding: 55px var(--gutter) 65px;
+  }
+  .ai-soft-heading {
+    display: block;
+    margin-bottom: 35px;
+  }
+  .ai-soft-heading h2 {
+    font-size: 55px;
+  }
+  .ai-soft-heading p {
+    margin-top: 22px;
+    font-size: 13px;
+  }
+  .ai-soft-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .ai-panel,
+  .soft-panel {
+    min-height: 0;
+    padding: 23px;
+  }
+  .ai-panel h3,
+  .soft-panel h3 {
+    font-size: 48px;
+    margin-top: 80px;
+  }
+  .soft-panel h3 {
+    margin-top: 65px;
+  }
+  .soft-list li {
+    padding: 14px 0;
   }
 }
